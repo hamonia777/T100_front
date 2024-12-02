@@ -58,6 +58,7 @@ function Login() {
               <label className="IL" htmlFor="ID">
                 ID
               </label>
+<<<<<<< HEAD
                 <input
                   type="text"
                   id="username"
@@ -66,6 +67,9 @@ function Login() {
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                 />
+=======
+              <input type="text" id="ID" className="II" maxLength="20" />
+>>>>>>> 8bb206202fbae49f9f9d230b14f8ccfffa9a7a1a
               <br />
               <label className="PL" htmlFor="PW">
                 PW

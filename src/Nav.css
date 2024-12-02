@@ -1,0 +1,62 @@
+body {
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+.NM {
+  display: inline-flex; /* 수평으로 항목 정렬 */
+  list-style: none; /* 기본 리스트 스타일 제거 */
+  transform: translate(0%, -55%);
+  padding: 0;
+  margin: 0;
+  justify-content: space-around;
+  font-size: 1.4rem;
+  height: 3vh;
+  max-height: 3vh;
+  min-height: 3vh;
+  flex: 1;
+}
+.NL {
+  display: inline-block;
+  position: relative;
+  list-style: none; /* 기본 리스트 스타일 제거 */
+  transform: translate(0%, -55%);
+  padding: 0;
+  padding-left: 2vw;
+  margin: 0 5vh 0 7vh;
+  justify-content: space-around;
+  font-size: 1.6rem;
+  font-weight: bold;
+  height: 3vh;
+  max-height: 3vh;
+  min-height: 3vh;
+  width: 12vw;
+}
+.NU {
+  display: inline-block;
+  position: relative;
+  list-style: none; /* 기본 리스트 스타일 제거 */
+  transform: translate(0%, -35%);
+  padding: 0;
+  margin: 0;
+  margin-left: 10vw;
+}
+
+.NB {
+  flex: 1;
+  width: 100%;
+  height: 1vh;
+  max-height: 1vh;
+  min-height: 1vh;
+  padding: 2.5% 2vh 2.5% 2vh;
+  position: fixed;
+  background-color: #282828;
+
+  z-index: 1000;
+}
+.NI {
+  padding: 0 20vh;
+  margin: 0;
+  height: 3vh;
+  max-height: 3vh;
+  min-height: 3vh;
+}
