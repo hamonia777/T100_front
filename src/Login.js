@@ -21,21 +21,20 @@ function Login() {
           <b className="w">Welcome!</b>
           <div className="SMlog">
             <div className="Ll">
-              <form className="LF">
-                <label className="IL" htmlFor="ID">
-                  ID
-                </label>
-                <input type="text" id="ID" className="II" maxLength="20" />
-                <br />
-                <label className="PL" htmlFor="PW">
-                  PW
-                </label>
-                <input type="password" id="PW" className="IP" maxLength="20" />
-                <br />
-                <button type="submit" className="LB">
-                  login
-                </button>
-              </form>
+              <label className="IL" htmlFor="ID">
+                ID
+              </label>
+              <input type="text" id="ID" className="II" maxLength="20" />
+              <br />
+              <label className="PL" htmlFor="PW">
+                PW
+              </label>
+              <input type="password" id="PW" className="IP" maxLength="20" />
+              <br />
+              <button type="submit" className="LB">
+                login
+              </button>
+
               <br />
 
               <Link to="/Sign" className="SB">
