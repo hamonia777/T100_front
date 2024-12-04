@@ -1,0 +1,180 @@
+*,
+*::before,
+*::after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Primary';
+     src:url('../public/fonts/PPEditorialOld-UltraboldItalic.otf') format('woff2'),
+         url('../public/fonts/PPEditorialOld-UltraboldItalic.otf') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+  
+:root {
+    --primary: #e0e0e0;
+    --secondary: #171717;
+}
+
+html {
+    font-size: calc(100vw / 1920 * 10);
+}
+
+body {
+    font-family: 'Primary';
+    background-color: var(--primary);
+    color: var(--secondary);
+   background-image: url('/public/t1003.jpg');
+    background-size: contain;
+    background-position: center;
+    /* background-repeat: no-repeat; */
+}
+h1 {
+    font-size: 32rem;
+}
+
+h2 {
+    font-size: 12rem;
+}
+
+a,
+p,
+span {
+    display: block;
+    font-size: 2.4rem;
+    text-decoration: none;
+    color: var(--secondary);
+}
+
+/* Nav */
+.nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 50;
+}
+
+.nav_wrapper { /* x */ 
+    display: flex;
+    justify-content: center;
+    gap: 8rem;
+    overflow: hidden;
+    padding: 4rem 4rem 0 4rem;
+}
+
+/* Page Transition */
+.transition {/* x */
+    /* display: none; */
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 999;
+}
+
+.transition_wrapper { /* x */
+    background-color: var(--secondary);
+}
+
+.transition_row { /* x */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: 2.4rem;
+    height : calc(100vh / 3);
+    color : var(--primary);
+    overflow : hidden;
+}
+.transition_row:nth-child(2){ /* x */
+    z-index: 2;
+    color : var(--secondary);
+    background-color: transparent;
+}
+.transition_row h2 { /* x */
+    font-size: calc(100vh/3 - 4rem);
+    padding-top : 8rem;
+}
+.transition_row_background { /* x */
+    position : absolute;
+    left : 0;
+    top : 0;
+    width : 100%;
+    height: 100%;
+    background-color: var(--primary);
+    z-index: -1;
+
+}
+/* Hero Section */
+.hero { /* x */
+    position: relative; 
+    width: 100%;
+    height: 100vh;
+}
+
+.hero_wrapper { /* x */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+    width: inherit;
+    height: inherit;
+}
+
+.hero_title { /* x */
+    text-align: center;
+}
+
+.hero_description { /* x */
+    width: 64rem;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    /* Add responsive styles here */
+    html{
+        font-size : calc(100vw / 768 * 10);
+    }
+    h1 {
+        font-size: 22rem;
+    }
+    .transition_row h2{
+        font-size: calc(100vh/3 - 16rem);
+    }
+}
+
+
+.hero_description {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* 버튼을 수직으로도 가운데 정렬하고 싶다면 추가 */
+    width: 100%; /* 필요에 따라 추가 */
+  }
+  
+  .hero_button {
+    display: inline-block; /* 버튼처럼 보이게 하기 */
+    background-color: #8B4513;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 24px;
+    text-decoration: none; /* 링크 밑줄 제거 */
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+  
+  .hero_button:hover {
+    background-color: #A0522D;
+    transform: translateY(-3px);
+  }
