@@ -19,6 +19,9 @@ body {
   color: #181818;
   z-index: 10000;
   background-color: #cccccc;
+  font-size: 15px !important;
+  font-weight: bold; /* 굵기 설정 */
+  text-align: center; /* 텍스트 정렬 */
 }
 
 .Re {

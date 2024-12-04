@@ -8,13 +8,13 @@
 
 @font-face {
     font-family: 'Primary';
-    src: url('./fonts/PPEditorialOld-UltraboldItalic.otf') format('woff2'),
-         url('./fonts/PPEditorialOld-UltraboldItalic.otf') format('woff');
+     src:url('../public/fonts/PPEditorialOld-UltraboldItalic.otf') format('woff2'),
+         url('../public/fonts/PPEditorialOld-UltraboldItalic.otf') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
-
+  
 :root {
     --primary: #e0e0e0;
     --secondary: #171717;
@@ -28,7 +28,7 @@ body {
     font-family: 'Primary';
     background-color: var(--primary);
     color: var(--secondary);
-    background-image: url('/public/t1003.jpg');
+   background-image: url('/public/t1003.jpg');
     background-size: contain;
     background-position: center;
     /* background-repeat: no-repeat; */
@@ -150,3 +150,31 @@ span {
         font-size: calc(100vh/3 - 16rem);
     }
 }
+
+
+.hero_description {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* 버튼을 수직으로도 가운데 정렬하고 싶다면 추가 */
+    width: 100%; /* 필요에 따라 추가 */
+  }
+  
+  .hero_button {
+    display: inline-block; /* 버튼처럼 보이게 하기 */
+    background-color: #8B4513;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 24px;
+    text-decoration: none; /* 링크 밑줄 제거 */
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+  
+  .hero_button:hover {
+    background-color: #A0522D;
+    transform: translateY(-3px);
+  }
