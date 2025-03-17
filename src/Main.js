@@ -29,15 +29,17 @@ const Main = () => {
       <Navi />
       <div className="Ma">
         <div className="Ai"></div>
+        
         <div className="Sb">
           {error ? (
             <p>Error: {error}</p>
           ) : reportData ? (
-            <h2>{reportData.title}</h2> // title 데이터를 Sb에 렌더링
+            <h2 id="title">{reportData.title}</h2> // title 데이터를 Sb에 렌더링
           ) : (
             <p>Loading...</p>
           )}
         </div>
+        
         <div className="Re">
           {error ? (
             <p>Error: {error}</p>
@@ -47,6 +49,7 @@ const Main = () => {
             <p>Loading...</p>
           )}
         </div>
+        
         <div className="Uf"></div>
       </div>
     </div>
