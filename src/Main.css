@@ -26,17 +26,17 @@ body {
 .Sb #title{
   margin: 0; /* h2의 기본 margin을 제거 */
   font-size: 4rem; /* h2의 폰트 크기 조정 (필요한 경우) */
+  max-width: 700px;
 }
 
 .Re {
   display: inline-block;
+  font-size: medium;
   margin: 1px;
   margin-top: 1%;
   margin-left: 27%;
   margin-right: 2%;
-  padding: 10px;
-  width: 46%;
-  height: 200vh;
+  padding: 20px;
   border-radius: 15px;
   border-style: solid;
   border-width: 5px;
@@ -44,7 +44,23 @@ body {
   color: #181818;
   z-index: 10000;
   background-color: #cccccc;
+
+  width: 100%;
+  min-height: 200px; 
+  max-width: 700px; 
+  box-sizing: border-box;
+  white-space: pre-wrap; /* 줄바꿈과 공백 유지 */
+  overflow: auto; 
 }
+
+/* 리포트 내용 */
+.report-content {
+  white-space: pre-wrap; /* 줄바꿈과 공백 유지 */
+}
+
+
+
+
 .Ai{
   display: inline-block;
   position: fixed;
