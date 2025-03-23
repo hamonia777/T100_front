@@ -5,6 +5,8 @@ import Start from "./Start";
 import Login from "./Login";
 import Sign from "./Sign";
 import Main from "./Main";
+import Board from "./Board";
+import MyPage from "./MyPage";
 import WorldMap from "./WorldMap"; // WorldMap 컴포넌트 추가
 import CountryDetails from "./CountryDetails"; // CountryDetails 컴포넌트 추가
 
@@ -23,8 +25,13 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/sign" element={<Sign />} />
         <Route path="/main" element={<Main />} />
-        <Route path="/map" element={<WorldMap onCountrySelect={handleCountrySelect} />} />
+        <Route
+          path="/map"
+          element={<WorldMap onCountrySelect={handleCountrySelect} />}
+        />
         <Route path="/country" element={<CountryDetails />} />
+        <Route path="/board" element={<Board />} />
+        <Route path="/mypage" element={<MyPage />} />
       </Routes>
     </div>
   );
