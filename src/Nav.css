@@ -2,10 +2,11 @@ body {
   font-family: sans-serif;
   box-sizing: border-box;
 }
-.NM {
+
+.navMenu {
   display: inline-flex; /* 수평으로 항목 정렬 */
   list-style: none; /* 기본 리스트 스타일 제거 */
-  transform: translate(0%, -55%);
+  transform: translate(0%, -60%);
   padding: 0;
   margin: 0;
   justify-content: space-around;
@@ -15,48 +16,55 @@ body {
   min-height: 3vh;
   flex: 1;
 }
-.NL {
+
+.navProfile {
   display: inline-block;
   position: relative;
   list-style: none; /* 기본 리스트 스타일 제거 */
-  transform: translate(0%, -55%);
-  padding: 0;
-  padding-left: 2vw;
-  margin: 0 5vh 0 7vh;
-  justify-content: space-around;
-  font-size: 1.6rem;
-  font-weight: bold;
-  height: 3vh;
-  max-height: 3vh;
-  min-height: 3vh;
-  width: 12vw;
-}
-.NU {
-  display: inline-block;
-  position: relative;
-  list-style: none; /* 기본 리스트 스타일 제거 */
-  transform: translate(0%, -35%);
+  transform: translate(0%, -30%);
   padding: 0;
   margin: 0;
   margin-left: 10vw;
 }
 
-.NB {
+.navBar {
   flex: 1;
   width: 100%;
-  height: 1vh;
-  max-height: 1vh;
-  min-height: 1vh;
+  height: 10%;
   padding: 2.5% 2vh 2.5% 2vh;
   position: fixed;
-  background-color: #282828;
+  background-color: #cccccc;
 
   z-index: 1000;
 }
-.NI {
+
+.navItem {
+  position: relative;
   padding: 0 20vh;
-  margin: 0;
+  margin: 0px;
+  margin-left: 50px;
   height: 3vh;
   max-height: 3vh;
   min-height: 3vh;
+}
+
+.navItem a {
+  position: relative;
+  text-decoration: none; /* 기본 링크 스타일 제거 */
+}
+
+.navItem a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  height: 1px;
+  background-color: brown;
+  transform: scale(0);
+  transition: transform 0.3s;
+}
+
+.navItem a:hover::after {
+  transform: scale(1);
 }

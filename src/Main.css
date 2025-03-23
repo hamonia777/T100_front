@@ -6,7 +6,7 @@ body {
 .Sb { 
   display: inline-block;
   margin: 1px;
-  margin-top: 8%;
+  margin-top: 6%;
   margin-left: 27%;
   margin-right: 2%;
   padding: 10px;
@@ -33,7 +33,7 @@ body {
   display: inline-block;
   font-size: medium;
   margin: 1px;
-  margin-top: 1%;
+  margin-top: 2%;
   margin-left: 27%;
   margin-right: 2%;
   padding: 20px;
@@ -59,12 +59,10 @@ body {
 }
 
 
-
-
 .Ai{
   display: inline-block;
   position: fixed;
-  margin-top: 13%;
+  margin-top: 10%;
   margin-left: 2%;
   padding: 10px;
   width: 21%;
