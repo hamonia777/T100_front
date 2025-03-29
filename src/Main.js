@@ -28,8 +28,8 @@ const Main = () => {
   useEffect(() => {
     const fetchReportData = async () => {
       try {
-        await fetch("http://localhost:8080/api/crawl"); //크롤링 api
-        await fetch("http://localhost:8080/api/chat"); //보고서 생성 api
+        //await fetch("http://localhost:8080/api/crawl"); //크롤링 api
+        //await fetch("http://localhost:8080/api/chat"); //보고서 생성 api
 
         const response = await fetch("http://localhost:8080/api/report"); //보고서 확인 api
         if (!response.ok) {
@@ -55,12 +55,18 @@ const Main = () => {
   }, []);
 
   return (
-    <div className="BD">
-      <Navi />
+    <div className="report-page">
+      <div className="report-navBar">
+        <Navi />
+      </div>
+
       {loading && <Loading />}
-      <div className="Ma">
-        <div className="Ai"></div>
-        <div className="Sb">
+
+      <div className="report-ad"></div>
+      <div className="report-myInfo"></div>
+
+      <div className="report-container">
+        <div className="report-title">
           {error ? (
             <p>Error: {error}</p>
           ) : reportData ? (
@@ -70,7 +76,7 @@ const Main = () => {
           )}
         </div>
 
-        <div className="Re">
+        <div className="report-content-container">
           {error ? (
             <p>Error: {error}</p>
           ) : reportData ? (
@@ -82,8 +88,6 @@ const Main = () => {
             <p>Loading...</p>
           )}
         </div>
-
-        <div className="Uf"></div>
       </div>
     </div>
   );
