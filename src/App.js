@@ -5,7 +5,7 @@ import Start from "./Start";
 import Login from "./Login";
 import Sign from "./Sign";
 import Main from "./Main";
-import Board from "./Board";
+import Board from "./Board/Board";
 import MyPage from "./MyPage";
 import WorldMap from "./WorldMap"; // WorldMap 컴포넌트 추가
 import CountryDetails from "./CountryDetails"; // CountryDetails 컴포넌트 추가
