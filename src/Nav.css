@@ -1,51 +1,42 @@
 body {
   font-family: sans-serif;
   box-sizing: border-box;
-}
-
-.navMenu {
-  display: inline-flex; /* 수평으로 항목 정렬 */
-  list-style: none; /* 기본 리스트 스타일 제거 */
-  transform: translate(0%, -60%);
-  padding: 0;
   margin: 0;
-  justify-content: space-around;
-  font-size: 1.4rem;
-  height: 3vh;
-  max-height: 3vh;
-  min-height: 3vh;
-  flex: 1;
-}
-
-.navProfile {
-  display: inline-block;
-  position: relative;
-  list-style: none; /* 기본 리스트 스타일 제거 */
-  transform: translate(0%, -30%);
   padding: 0;
-  margin: 0;
-  margin-left: 10vw;
 }
 
 .navBar {
-  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
-  height: 10%;
-  padding: 2.5% 2vh 2.5% 2vh;
+  height: 10vh;
+  padding: 2vh 5vw;  /* 가로 패딩을 화면 너비에 비례하도록 설정 */
   position: fixed;
+  top: 0;
   background-color: #cccccc;
-
   z-index: 1000;
 }
 
+.navMenu, .navProfile {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+}
+
+.navMenu {
+  flex: 1; /* 남은 공간을 채움 */
+  justify-content: center; /* 메뉴 아이템을 가운데 정렬 */
+}
+
+.navProfile {
+  margin-left: 30vh; /* 오른쪽 끝으로 배치 */
+}
+
 .navItem {
-  position: relative;
-  padding: 0 20vh;
-  margin: 0px;
-  margin-left: 50px;
-  height: 3vh;
-  max-height: 3vh;
-  min-height: 3vh;
+  margin: 0 10vw;  /* 화면 크기에 비례한 마진 */
 }
 
 .navItem a {
@@ -67,4 +58,24 @@ body {
 
 .navItem a:hover::after {
   transform: scale(1);
+}
+
+.U svg {
+  width: 2.5vw; /* 아이콘 크기를 화면 크기에 맞게 설정 */
+  height: auto;
+}
+
+/* 반응형 디자인: 화면이 작아지면 폰트 크기와 간격 조정 */
+@media (max-width: 768px) {
+  .navItem {
+    margin: 0 4vw;
+  }
+
+  .navItem a {
+    font-size: 3rem;
+  }
+
+  .U svg {
+    width: 6vw;
+  }
 }
