@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Navi from "./Navi.js";
 import Loading from "./Loading.js";
+import Ad from "./Ad.js";
+import MyInfo from "./MyInfo.js";
 import "./Main.css";
 
 function editContent(data) {
@@ -62,8 +64,12 @@ const Main = () => {
 
       {loading && <Loading />}
 
-      <div className="report-ad"></div>
-      <div className="report-myInfo"></div>
+      <div className="report-ad">
+        <Ad />
+      </div>
+      <div className="report-myInfo">
+        <MyInfo />
+      </div>
 
       <div className="report-container">
         <div className="report-title">
