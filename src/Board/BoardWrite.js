@@ -1,25 +1,29 @@
 import React from "react";
 import Navi from "../Navi.js";
-import Ad from "../Ad.js";
 import MyInfo from "../MyInfo.js";
+import Ad from "../Ad.js";
+import Write from "./Editor.js";
 import "./BoardWrite.css";
 
 function BoardWrite() {
   return (
-    <div className="board">
+    <div className="board-write">
       <div className="board-nav">
         <Navi />
       </div>
 
-      <div className="board-ad">
+      <div className="board-write-ad">
         <Ad />
       </div>
-      <div className="board-myInfo">
+
+      <div className="board-write-myInfo">
         <MyInfo />
       </div>
 
-      <div className="board-write">
-        <h3>WTF</h3>
+      <div className="board-write-container">
+        <div className="board-write-content">
+          <Write />
+        </div>
       </div>
     </div>
   );

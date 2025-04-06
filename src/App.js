@@ -6,6 +6,7 @@ import Login from "./Login";
 import Sign from "./Sign";
 import Main from "./Main";
 import Board from "./Board/Board";
+import BoardWrite from "./Board/BoardWrite";
 import MyPage from "./MyPage";
 import WorldMap from "./WorldMap"; // WorldMap 컴포넌트 추가
 import CountryDetails from "./CountryDetails"; // CountryDetails 컴포넌트 추가
@@ -31,6 +32,7 @@ function App() {
         />
         <Route path="/country" element={<CountryDetails />} />
         <Route path="/board" element={<Board />} />
+        <Route path="/boardwrite" element={<BoardWrite />} />
         <Route path="/mypage" element={<MyPage />} />
       </Routes>
     </div>
