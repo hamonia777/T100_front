@@ -16,7 +16,6 @@
 .report-title { 
   display: inline-block;
   margin: 1px;  
-  margin-top: 6%;
   margin-left: 27%;
   margin-right: 2%;
   padding: 10px;
@@ -57,4 +56,12 @@
   box-sizing: border-box;
   white-space: pre-wrap; /* 줄바꿈과 공백 유지 */
   z-index: 0;
+}
+
+.report-ad{
+  margin-top: 10%;
+}
+
+.report-myinfo{
+  margin-top: 10%;
 }

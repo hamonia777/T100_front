@@ -1,11 +1,23 @@
-.board-Write-button{
+
+.board-Write-button #write-button{
+    
+    margin-right: 450px ;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
+    border : 2.5px solid #181818;
+    border-radius: 5px;
 }
 
 .board-postList{
     display: inline-block;
     font-size: medium;
     margin: 1px;
-    margin-top: 12%;
+    margin-top: 1%;
     margin-left: 27%;
     margin-right: 2%;
     padding: 20px;
@@ -22,3 +34,49 @@
     white-space: pre-wrap; /* 줄바꿈과 공백 유지 */
     z-index: 0;
 }
+  
+  #board-title {
+    margin-top: 10%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .board-Write-button {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+  }
+  
+  #write-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .board-postList {
+    margin-top: 20px;
+  }
+  
+  .board-post-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px; /* 간격을 추가 */
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd; /* 항목 밑에 줄을 추가 */
+  }
+  
+  .board-post-item a {
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .board-post-item a:hover {
+    color: #007bff;
+  }
+  
+  .board-post-item span {
+    font-size: 14px;
+    color: #666;
+  }
+  
