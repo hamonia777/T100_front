@@ -13,6 +13,21 @@
 .report-page{
   overflow:visible;
 }
+
+.report-category #report-choose-category-button{
+  margin-left: 65%;
+  margin-bottom: 1%;
+}
+
+.report-category-list-buttons{
+  margin-left: 35%;
+  margin-right: 30%;
+}
+
+.report-category-button{
+  margin-left: 5%;
+}
+
 .report-title { 
   display: inline-block;
   margin: 1px;  
@@ -59,9 +74,9 @@
 }
 
 .report-ad{
-  margin-top: 10%;
+  margin-top: 9%;
 }
 
 .report-myinfo{
-  margin-top: 10%;
+  margin-top: 9%;
 }

@@ -63,25 +63,25 @@ function Board() {
 
       <div className="board-container">
         <h3 id="board-title">게시판</h3>
-        <div className="board-Write-button">
-          <Link to="/boardwrite">
-            <button id="write-button">작성하기</button>
-          </Link>
-        </div>
         <div className="board-postList">
           <div>
             <ul>
               {boardList.map((board) => (
                 <li key={board.id} className="board-post-item">
-                  <Link to={`/boar  d/${board.id}`}>{board.title}</Link>
+                  <Link to={`/boarddetail`}>{board.title}</Link>
                   <span>작성자: {board.author}</span>
                   <span style={{ fontSize: "12px", color: "gray" }}>
-                    | 작성 시간: {board.createdAt}
+                    | 작성 일자: {board.createdAt}
                   </span>
                 </li>
               ))}
             </ul>
           </div>
+        </div>
+        <div className="board-Write-button">
+          <Link to="/boardwrite">
+            <button id="write-button">작성하기</button>
+          </Link>
         </div>
       </div>
     </div>
