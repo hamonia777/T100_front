@@ -17,7 +17,7 @@
   
 :root {
     --primary: #e0e0e0;
-    --secondary: #171717;
+    --secondary: #133d78;
 }
 
 html {
@@ -28,7 +28,7 @@ body {
     font-family: 'Primary';
     background-color: var(--primary);
     color: var(--secondary);
-   background-image: url('/public/t1003.jpg');
+   background: #FAF9FF;
     background-size: contain;
     background-position: center;
     /* background-repeat: no-repeat; */
@@ -38,7 +38,7 @@ h1 {
 }
 
 h2 {
-    font-size: 12rem;
+    font-size: 9rem;
 }
 
 a,
@@ -161,8 +161,7 @@ span {
   
   .hero_button {
     display: inline-block; /* 버튼처럼 보이게 하기 */
-    background-color: #8B4513;
-    color: white;
+    color: #133d78;
     font-size: 16px;
     font-weight: bold;
     padding: 12px 24px;
@@ -175,6 +174,7 @@ span {
   }
   
   .hero_button:hover {
-    background-color: #A0522D;
+    background-color: #133d78;
+    color: #FFF;
     transform: translateY(-3px);
   }
