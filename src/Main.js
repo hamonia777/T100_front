@@ -7,6 +7,8 @@ import "./Main.css";
 
 const Main = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedIndex, setSelectedIndex] = useState(null); //선택된 버튼 인덱스
+
   const categories = [
     "종합 보고서",
     "비즈니스 및 금융 트렌드 보고서",
@@ -16,8 +18,9 @@ const Main = () => {
     "기타 트렌드 보고서",
   ];
 
-  const handleButtonClick = (category) => {
+  const handleButtonClick = (category, index) => {
     setSelectedCategory(category); // 어떤 카테고리 눌렀는지 저장
+    setSelectedIndex(index);
   };
 
   const hasVisited = sessionStorage.getItem("hasVisited");
@@ -45,8 +48,8 @@ const Main = () => {
         {categories.map((category, index) => (
           <button
             key={index}
-            className={`report-category-button`}
-            onClick={() => handleButtonClick(category)}
+            className={selectedIndex === index ? "selected" : ""}
+            onClick={() => handleButtonClick(category, index)}
           >
             {category}
           </button>

@@ -18,82 +18,114 @@ function editContent(data) {
   return data;
 }
 
-const ReportContainer = ({ category }) => {
-  const [reportData, setReportData] = useState(null);
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(true);
+// 카테고리별 API 매핑
+const apiMap = {
+  "종합 보고서": ["crawl", "chat", "report", "Date"],
+  "비즈니스 및 금융 트렌드 보고서": [
+    "BandfCrawl",
+    "bandfChat",
+    "bandfReport",
+    "bandfDate",
+  ],
+  "엔터테인먼트 트렌드 보고서": [
+    "EnterCrawl",
+    "enterChat",
+    "enterReport",
+    "enterDate",
+  ],
+  "법률 및 정부 트렌드 보고서": [
+    "LandgCrawl",
+    "landgChat",
+    "landgReport",
+    "landgDate",
+  ],
+  "스포츠 트렌드 보고서": [
+    "SportsCrawl",
+    "sportsChat",
+    "sportsReport",
+    "sportsDate",
+  ],
+  "기타 트렌드 보고서": ["OtherCrawl", "otherChat", "otherReport", "otherDate"],
+};
 
-  const categories = [
-    "종합 보고서",
-    "비즈니스 및 금융 트렌드 보고서",
-    "엔터테인먼트 트렌드 보고서",
-    "법률 및 정부 트렌드 보고서",
-    "스포츠 트렌드 보고서",
-    "기타 트렌드 보고서",
-  ];
+function validateDate(today, targetDate) {
+  const diffInMs = Math.abs(today - targetDate);
+  const diffInDays = diffInMs / (1000 * 60 * 60 * 24);
+  return diffInDays <= 7; // 7일 이내인지 확인
+}
+
+const ReportContainer = ({ category }) => {
+  const [reportData, setReportData] = useState({}); //카테고리별 저장
+  const [currentReport, setCurrentReport] = useState(null);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  //오늘 날짜 출력
+  const today = new Date();
+  const dateToday = `${today.getFullYear()}-${(today.getMonth() + 1)
+    .toString()
+    .padStart(2, "0")}-${today.getDate()}`;
+  let date;
+
+  const fetchReportData = async () => {
+    const [crawlApi, chatApi, reportApi, dateApi] = apiMap[category] || [];
+
+    const dateData = await fetch(`http://localhost:8080/api/${dateApi}`);
+    date = await dateData.text();
+
+    if (!crawlApi || !chatApi || !reportApi) {
+      setError("잘못된 카테고리입니다.");
+      return;
+    }
+
+    try {
+      setLoading(true);
+      //await fetch(`http://localhost:8080/api/${crawlApi}`);
+      //await fetch(`http://localhost:8080/api/${chatApi}`);
+
+      const response = await fetch(`http://localhost:8080/api/${reportApi}`);
+      if (!response.ok) {
+        throw new Error(`Report fetch 실패: ${response.status}`);
+      }
+
+      const data = await response.json();
+      if (data && data.data) {
+        const editedData = editContent(data.data);
+
+        setReportData((prev) => ({
+          ...prev,
+          [category]: editedData, //해당 카테고리의 보고서 저장
+        }));
+
+        setCurrentReport(editedData);
+      } else {
+        throw new Error("받은 데이터가 없습니다.");
+      }
+    } catch (err) {
+      setError(`에러 발생: ${err.message}`);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
-    const fetchReportData = async () => {
-      try {
-        // 카테고리에 따라 다른 API 호출
-        // if (category === categories[0]) {
-        //   //종합
-        //   console.log(category);
-        //   await fetch("http://localhost:8080/api/crawl");
-        //   await fetch("http://localhost:8080/api/chat");
-        // } else if (category === categories[1]) {
-        //   //비즈니스 및 금융 트렌드
-        //   console.log(category);
-        //   setReportData();
-        //   setLoading(true);
-        //   await fetch("http://localhost:8080/api/BandfCrawl");
-        //   await fetch("http://localhost:8080/api/bandfChat");
-        // } else if (category === categories[2]) {
-        //   //엔터테인먼트 트렌드
-        //   console.log(category);
-        //   await fetch("http://localhost:8080/api/EnterCrawl");
-        //   await fetch("http://localhost:8080/api/enterChat");
-        // } else if (category === categories[3]) {
-        //   //법률 및 정부 트렌드
-        //   console.log(category);
-        //   await fetch("http://localhost:8080/api/LandgCrawl");
-        //   await fetch("http://localhost:8080/api/landgChat");
-        // } else if (category === categories[4]) {
-        //   //스포츠 트렌드
-        //   console.log(category);
-        //   await fetch("http://localhost:8080/api/SportsCrawl");
-        //   await fetch("http://localhost:8080/api/sportsChat");
-        // } else if (category === categories[5]) {
-        //   //기타 트렌드
-        //   console.log(category);
-        //   await fetch("http://localhost:8080/api/OtherCrawl");
-        //   await fetch("http://localhost:8080/api/otherChat");
-        // }
+    if (!category) return;
+    console.log(today, reportData[category]);
+    // 먼저 저장된 게 있는지 확인
+    if (
+      reportData[category]
+      //&& validateDate(today, reportData[category].date)
+    ) {
+      setCurrentReport(reportData[category]);
+      setLoading(false);
+      console.log("보고서 이미 있음");
+    } else {
+      console.log("보고서 없음");
+      fetchReportData();
+    }
+  }, [category]);
 
-        //const data = await response.json(); //보고서 내용 받아오기
-        const response = await fetch("http://localhost:8080/api/bandfReport"); //보고서 확인 api
-        if (!response.ok) {
-          throw new Error(`Chat API error! status: ${response.status}`);
-        }
-
-        const data = await response.json(); //보고서 내용 받아오기
-
-        // 데이터가 제대로 들어왔을 때만 상태 업데이트 함!
-        if (data && data.data) {
-          const editedData = editContent(data.data);
-          setReportData(editedData); //보고서 내용 저장
-          setLoading(false); //loading 그만
-        } else {
-          throw new Error("No data received");
-        }
-      } catch (err) {
-        setError(`데이터 불러오기 실패: ${err.message}`);
-        setLoading(false);
-      }
-    };
-
-    fetchReportData();
-  }, []);
+  if (loading) return <Loading />;
 
   return (
     <div>
@@ -103,8 +135,8 @@ const ReportContainer = ({ category }) => {
         <div className="report-title">
           {error ? (
             <p>Error: {error}</p>
-          ) : reportData ? (
-            <h2 id="title">{reportData.title}</h2>
+          ) : reportData[category] ? (
+            <h2 id="title">{reportData[category].title}</h2>
           ) : (
             <p>Loading...</p>
           )}
@@ -113,10 +145,10 @@ const ReportContainer = ({ category }) => {
         <div className="report-content-container">
           {error ? (
             <p>Error: {error}</p>
-          ) : reportData ? (
+          ) : reportData[category] ? (
             <div
               className="report-content"
-              dangerouslySetInnerHTML={{ __html: reportData.content }}
+              dangerouslySetInnerHTML={{ __html: reportData[category].content }}
             />
           ) : (
             <p>Loading...</p>

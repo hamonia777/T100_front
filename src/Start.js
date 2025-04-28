@@ -1,9 +1,9 @@
-import React, { useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
-import gsap from 'gsap';
-import './settings.css';
-import './Pageswap.css';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import gsap from "gsap";
+import "./settings.css";
+import "./Pageswap.css";
+import { Link } from "react-router-dom";
 
 function Home() {
   const transitionRef = useRef(null);
@@ -29,9 +29,9 @@ function Home() {
     return new Promise((resolve) => {
       const t = transition.current;
       tlTransition.current
-        .to(t.rows[1], { overflow: 'unset' })
-        .to(t.rowBackground, { scaleY: 3 }, '<0.2')
-        .to('.transition_row > h2:not(.unique)', { autoAlpha: 0 }, '<1')
+        .to(t.rows[1], { overflow: "unset" })
+        .to(t.rowBackground, { scaleY: 3 }, "<0.2")
+        .to(".transition_row > h2:not(.unique)", { autoAlpha: 0 }, "<1")
         .to(t.wrapper, {
           duration: 2,
           autoAlpha: 0,
@@ -59,27 +59,29 @@ function Home() {
 
   useEffect(() => {
     transition.current = {
-      element: transitionRef.current.querySelector('.transition'),
-      wrapper: transitionRef.current.querySelector('.transition_wrapper'),
-      rows: transitionRef.current.querySelectorAll('.transition_row'),
-      rowBackground: transitionRef.current.querySelector('.transition_row_background'),
-      words: transitionRef.current.querySelectorAll('.transition_row > h2'),
+      element: transitionRef.current.querySelector(".transition"),
+      wrapper: transitionRef.current.querySelector(".transition_wrapper"),
+      rows: transitionRef.current.querySelectorAll(".transition_row"),
+      rowBackground: transitionRef.current.querySelector(
+        ".transition_row_background"
+      ),
+      words: transitionRef.current.querySelectorAll(".transition_row > h2"),
     };
 
     tlTransition.current = gsap.timeline({
       defaults: {
         duration: 1.6,
-        ease: 'expo.inOut',
+        ease: "expo.inOut",
       },
     });
 
     const init = () => {
       const t = transition.current;
       gsap.set(t.wrapper, { autoAlpha: 1, yPercent: 100 });
-      gsap.set(t.rows[1], { overflow: 'hidden' });
-      gsap.set(t.rowBackground, { scaleY: 0, transformOrigin: 'center' });
+      gsap.set(t.rows[1], { overflow: "hidden" });
+      gsap.set(t.rowBackground, { scaleY: 0, transformOrigin: "center" });
       gsap.set(t.words, { xPercent: -150, yPercent: 100, autoAlpha: 1 });
-      gsap.set('.reverse > h2', { xPercent: 150 });
+      gsap.set(".reverse > h2", { xPercent: 150 });
     };
 
     const handleTransitions = async () => {
@@ -102,8 +104,12 @@ function Home() {
       {/* 네비게이션 바 */}
       <div className="nav">
         <div className="nav_wrapper">
-          <AnimatedLink to="/" className="nav_page">Home &#8599;</AnimatedLink>
-          <AnimatedLink to="/login" className="nav_page">Login &#8599;</AnimatedLink>
+          <AnimatedLink to="/" className="nav_page">
+            Home &#8599;
+          </AnimatedLink>
+          <AnimatedLink to="/login" className="nav_page">
+            Login &#8599;
+          </AnimatedLink>
         </div>
       </div>
 
@@ -141,10 +147,12 @@ function Home() {
           <div className="hero_wrapper">
             <div className="hero_title">
               <h1>T100</h1>
-              <h2>Creative</h2>
+              <h2>your favorite trend site</h2>
             </div>
             <div className="hero_description">
-              <Link to="/login" className="hero_button">Explore More</Link>
+              <Link to="/login" className="hero_button">
+                Explore More
+              </Link>
             </div>
           </div>
         </div>
