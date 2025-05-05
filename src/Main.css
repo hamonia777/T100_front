@@ -20,7 +20,7 @@
   padding: 10px 1px 10px 10px;
   border-radius: 8px;
   border-style: solid;
-  border-width: 3px;
+  border-width: 1px;
   border-color: #333333;
 }
 
@@ -45,13 +45,14 @@
   margin-left: 27%;
   margin-right: 2%;
   margin-top: 2%;
-  border-radius: 15px;
+  border-radius: 10px;
   border-style: solid;
   border-width: 1px;
   border-color: #333333;
   width: 46%;
   padding: 10px 110px 10px 110px;
   color: #182c47;
+  background-color: #FFFFFF;
   font-weight: bold; /* 굵기 설정 */
   text-align: center; /* 텍스트 정렬 */
 }
@@ -67,8 +68,9 @@
   margin: 1px;
   margin-left: 27%;
   margin-right: 2%;
+  margin-bottom: 10%;
   padding: 20px;
-  border-radius: 15px;
+  border-radius: 13px;
   border-style: solid;
   border-width: 1px;
   border-color: #333333;

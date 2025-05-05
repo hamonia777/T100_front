@@ -151,7 +151,7 @@ function Home() {
             </div>
             <div className="hero_description">
               <Link to="/login" className="hero_button">
-                Explore More
+                Start
               </Link>
             </div>
           </div>

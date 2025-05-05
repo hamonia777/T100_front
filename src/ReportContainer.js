@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
+import Modal from "./Modal.js";
 import Loading from "./Loading";
 
+//보고서 내용 편집
 function editContent(data) {
   if (!data || !data.content) return data;
 
@@ -54,11 +56,17 @@ function validateDate(today, targetDate) {
   return diffInDays <= 7; // 7일 이내인지 확인
 }
 
+//보고서 평가하기
+function showRate() {}
+
 const ReportContainer = ({ category }) => {
   const [reportData, setReportData] = useState({}); //카테고리별 저장
   const [currentReport, setCurrentReport] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [rating, setRating] = useState(0);
+  const [star, setStar] = useState(0);
 
   //오늘 날짜 출력
   const today = new Date();
@@ -66,6 +74,20 @@ const ReportContainer = ({ category }) => {
     .toString()
     .padStart(2, "0")}-${today.getDate()}`;
   let date;
+
+  //모달창 열기 닫기
+  const openModal = () => {
+    setModalOpen(true);
+  };
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
+  //보고서 평점 값
+  const handleRatingSubmit = (value) => {
+    setStar(value);
+    console.log(`ReportContainer에서 받은 평점: ${value}`);
+  };
 
   const fetchReportData = async () => {
     const [crawlApi, chatApi, reportApi, dateApi] = apiMap[category] || [];
@@ -108,9 +130,10 @@ const ReportContainer = ({ category }) => {
     }
   };
 
+  //보고서 유무 확인
   useEffect(() => {
     if (!category) return;
-    console.log(today, reportData[category]);
+    //console.log(today, reportData[category]);
     // 먼저 저장된 게 있는지 확인
     if (
       reportData[category]
@@ -125,6 +148,33 @@ const ReportContainer = ({ category }) => {
     }
   }, [category]);
 
+  //보고서 가져오기 유무 확인인
+  useEffect(() => {
+    if (!category) return;
+    if (reportData[category]) {
+      setCurrentReport(reportData[category]);
+      setLoading(false);
+    } else {
+      fetchReportData();
+    }
+  }, [category]);
+
+  // 스크롤바가 맨 밑에 닿으면 점수 평가 모달창 띄움
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrolledToBottom =
+        window.innerHeight + window.scrollY >= document.body.offsetHeight - 10;
+      if (scrolledToBottom) {
+        setModalOpen(true);
+        window.removeEventListener("scroll", handleScroll);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   if (loading) return <Loading />;
 
   return (
@@ -136,7 +186,9 @@ const ReportContainer = ({ category }) => {
           {error ? (
             <p>Error: {error}</p>
           ) : reportData[category] ? (
-            <h2 id="title">{reportData[category].title}</h2>
+            <h2 id="title" onClick={openModal}>
+              {reportData[category].title}
+            </h2>
           ) : (
             <p>Loading...</p>
           )}
@@ -154,6 +206,13 @@ const ReportContainer = ({ category }) => {
             <p>Loading...</p>
           )}
         </div>
+
+        {!loading && !error ? showRate() : null}
+        <Modal
+          open={modalOpen}
+          close={closeModal}
+          onRateSubmit={handleRatingSubmit}
+        />
       </div>
     </div>
   );

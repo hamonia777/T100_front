@@ -15,6 +15,9 @@ body {
   position: fixed;
   top: 0;
   z-index: 1000;
+  background-color: #FAF9FF;
+  border-bottom: 2px solid #ddd; 
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .navMenu, .navProfile {

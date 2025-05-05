@@ -25,13 +25,12 @@
     margin-left: 27%;
     margin-right: 2%;
     padding: 20px;
-    border-radius: 15px;
+    border-radius: 13px;
     border-style: solid;
-    border-width: 5px;
-    border-color: #181818;
-    color: #181818;
-    background-color: #cccccc;
-
+    border-width: 1px;
+    border-color: #182c47;
+    color: #182c47;
+    background-color: #FFFFFF;
     width: 46%;
     min-height: 200px; 
     box-sizing: border-box;
@@ -45,8 +44,16 @@
     color:white;
     font-size: 40px;
     font-weight: bold;
-    text-shadow:2px 1px 1px #000;
+    margin-left: 27%;
     margin-bottom: 20px; 
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #182c47;
+    width: 46%;
+    padding: 10px 110px 10px 110px;
+    background-color: #d8ebf6;
+    color: #182c47;
  }
   
   .board-Write-button {
