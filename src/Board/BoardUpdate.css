@@ -1,4 +1,4 @@
-.board-write-content{
+.board-update-content{
     display: inline-block;
     font-size: medium;
     margin: 1px;
@@ -20,6 +20,6 @@
     z-index: 0;
 }
 
-.board-write-ad{
+.board-update-ad{
     margin-top: 9%;
 }

@@ -1,14 +1,15 @@
 // Write.js
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import React, { useState } from "react";
 import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
-import "./Editor.css"; // CSS 따로 분리해서 import
+import "./Updator.css";
 
-function Editor() {
+function Updator() {
   const [subject, setSubject] = useState("");
   const [content, setContent] = useState("");
   const navigate = useNavigate();
+  const location = useLocation();
+  const { board } = location.state || {};
 
   const handleSave = () => {
     console.log("제목:", subject);
@@ -22,28 +23,26 @@ function Editor() {
   };
 
   return (
-    <div className="editor-wrapper">
-      <div className="editor-container">
+    <div className="updator-wrapper">
+      <div className="updator-container">
         <input
           className="title-input"
-          placeholder="제목을 입력해 주세요"
-          value={subject}
+          value={board.title}
           onChange={(e) => setSubject(e.target.value)}
         />
 
         <div className="content-input">
           <ReactQuill
             className="quill-editor"
-            placeholder="내용을 입력해 주세요"
-            value={content}
+            value={board.content}
             onChange={setContent}
           />
         </div>
       </div>
 
-      <div className="write-button-container">
-        <button className="submitButton" onClick={handleSave}>
-          저장하기
+      <div className="button-container">
+        <button className="updateButton" onClick={handleSave}>
+          수정하기
         </button>
         <button className="cancelButton" onClick={handleCancel}>
           취소하기
@@ -53,4 +52,4 @@ function Editor() {
   );
 }
 
-export default Editor;
+export default Updator;

@@ -10,6 +10,7 @@ import BoardWrite from "./Board/BoardWrite";
 import ReportContainer from "./ReportContainer";
 import MyPage from "./MyPage";
 import BoardDetail from "./Board/BoardDetail";
+import BoardUpdate from "./Board/BoardUpdate";
 import WorldMap from "./WorldMap"; // WorldMap 컴포넌트 추가
 import CountryDetails from "./CountryDetails"; // CountryDetails 컴포넌트 추가
 
@@ -36,6 +37,7 @@ function App() {
         <Route path="/board" element={<Board />} />
         <Route path="/boardwrite" element={<BoardWrite />} />
         <Route path="/boarddetail" element={<BoardDetail />} />
+        <Route path="/boardupdate" element={<BoardUpdate />} />
         <Route path="/mypage" element={<MyPage />} />
         <Route path="/reportcontent" element={<ReportContainer />} />
       </Routes>

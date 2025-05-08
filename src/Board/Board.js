@@ -46,7 +46,11 @@ const boardList = [
   },
 ];
 
-function Board() {
+const Board = ({ onClickTitle }) => {
+  const BoardDetailInfo = (board) => {
+    onClickTitle(board);
+  };
+
   return (
     <div className="board">
       <div className="board-nav">
@@ -68,7 +72,10 @@ function Board() {
             <ul>
               {boardList.map((board) => (
                 <li key={board.id} className="board-post-item">
-                  <Link to={`/boarddetail`}>{board.title}</Link>
+                  <Link to="/boarddetail" state={{ board }}>
+                    {board.title}
+                  </Link>
+
                   <span>작성자: {board.author}</span>
                   <span style={{ fontSize: "12px", color: "gray" }}>
                     | 작성 일자: {board.createdAt}
@@ -86,6 +93,6 @@ function Board() {
       </div>
     </div>
   );
-}
+};
 
 export default Board;

@@ -8,6 +8,7 @@ import "./Main.css";
 const Main = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedIndex, setSelectedIndex] = useState(null); //선택된 버튼 인덱스
+  const [modalOpen, setModalOpen] = useState(false);
 
   const categories = [
     "종합 보고서",
