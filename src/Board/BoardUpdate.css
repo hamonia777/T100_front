@@ -1,0 +1,25 @@
+.board-update-content{
+    display: inline-block;
+    font-size: medium;
+    margin: 1px;
+    margin-top: 1%;
+    margin-left: 27%;
+    margin-right: 2%;
+    padding: 20px;
+    border-radius: 13px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #333333;
+    color: #182c47;
+    background-color: #FFFFFF;
+
+    width: 46%;
+    min-height: 200px; 
+    box-sizing: border-box;
+    white-space: pre-wrap; /* 줄바꿈과 공백 유지 */
+    z-index: 0;
+}
+
+.board-update-ad{
+    margin-top: 9%;
+}

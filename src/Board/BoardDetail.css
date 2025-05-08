@@ -1,6 +1,36 @@
+.board-detail-button-container{
+    margin-left: 60%;
+    margin-top: 1%;
+}
+
+
+.updateButton {
+    background-color: #182c47;
+    color: #FAF9FF;
+
+    padding: 5px 10px;  
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    margin-bottom: 3%;
+}
+
+.deleteButton {
+    margin-left: 2%;    
+    background-color: #eae9f0;
+    color: #182c47;
+
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    margin-bottom: 3%;
+}
+
 .board-detail-container {
     display: inline-block;
-    margin: 1px;
     margin-left: 27%;
     margin-right: 2%;
     margin-bottom: 10%;

@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Navi from "../Navi";
 import Ad from "../Ad";
 import MyInfo from "../MyInfo";
@@ -19,6 +19,15 @@ const BoardDetail = () => {
       </div>
       <div className="board-detail-myInfo">
         <MyInfo />
+      </div>
+      <div className="board-detail-button-container">
+        <button className="updateButton">
+          <Link to="/boardupdate" className="updateButton" state={{ board }}>
+            {" "}
+            수정하기{" "}
+          </Link>
+        </button>
+        <button className="deleteButton">삭제하기</button>
       </div>
 
       <div className="board-detail-container">
