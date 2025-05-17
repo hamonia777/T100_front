@@ -5,18 +5,35 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import "./Editor.css"; // CSS 따로 분리해서 import
 
-function Editor() {
-  const [subject, setSubject] = useState("");
+const Editor = () => {
+  const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const navigate = useNavigate();
 
-  const handleSave = () => {
-    console.log("제목:", subject);
-    console.log("내용:", content);
+  const handleSave = async () => {
+    try {
+      const response = await fetch("http://localhost:8080/api/community", {
+        method: "POST",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          title: title,
+          content: content,
+        }),
+      });
+      const data = await response.json();
+      console.log("서버 응답:", data);
+
+      navigate("/board");
+    } catch (error) {
+      console.error("게시글 작성 실패:", error);
+    }
   };
 
   const handleCancel = () => {
-    setSubject("");
+    setTitle("");
     setContent("");
     navigate("/board");
   };
@@ -27,8 +44,8 @@ function Editor() {
         <input
           className="title-input"
           placeholder="제목을 입력해 주세요"
-          value={subject}
-          onChange={(e) => setSubject(e.target.value)}
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
         />
 
         <div className="content-input">
@@ -51,6 +68,6 @@ function Editor() {
       </div>
     </div>
   );
-}
+};
 
 export default Editor;

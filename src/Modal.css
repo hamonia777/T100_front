@@ -1,5 +1,4 @@
 .modal {
-    display: none;
     position: fixed;
     top: 0;
     right: 0;
@@ -45,6 +44,18 @@
     border-bottom: 1px solid #dee2e6;
     border-top: 1px solid #dee2e6;
   }
+
+.rate-score-container{
+  display: flex;
+  margin-bottom: 3.5%;
+}
+
+.rate-dropdown-items{
+    display: inline-block;
+    width: flex;
+    margin-left: 3%;
+}
+
   .modal > section > footer {
     padding: 12px 16px;
     text-align: right;
@@ -62,6 +73,12 @@
     /* 팝업이 열릴때 스르륵 열리는 효과 */
     animation: modal-bg-show 0.3s;
   }
+.rate-dropdown{
+  font-size: 15px;
+}
+
+
+
   @keyframes modal-show {
     from {
       opacity: 0;
@@ -80,3 +97,5 @@
       opacity: 1;
     }
   }
+
+

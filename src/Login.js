@@ -28,10 +28,13 @@ function Login() {
       const accessToken =
         response.headers["accesstoken"] ||
         response.headers["accessToken"] ||
-        response.headers["AccessToken"];
+        response.headers["AccessToken"] ||
+        response.headers["authorization"];
       if (accessToken) {
         console.log("Access Token:", accessToken);
-        document.cookie = `accessToken=${accessToken}; path=/; secure`;
+        const pureAccessToken = accessToken.replace("Bearer ", "");
+        document.cookie = `accessToken=${pureAccessToken}; path=/; secure`;
+        //localStorage.setItem("accessToken", accessToken);
         console.log(response);
 
         // 로그인 성공 시 WorldMap으로 이동

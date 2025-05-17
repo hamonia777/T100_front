@@ -92,8 +92,8 @@ const ReportContainer = ({ category }) => {
   const fetchReportData = async () => {
     const [crawlApi, chatApi, reportApi, dateApi] = apiMap[category] || [];
 
-    const dateData = await fetch(`http://localhost:8080/api/${dateApi}`);
-    date = await dateData.text();
+    //const dateData = await fetch(`http://localhost:8080/api/${dateApi}`);
+    //date = await dateData.text();
 
     if (!crawlApi || !chatApi || !reportApi) {
       setError("잘못된 카테고리입니다.");
@@ -113,7 +113,7 @@ const ReportContainer = ({ category }) => {
       const data = await response.json();
       if (data && data.data) {
         const editedData = editContent(data.data);
-
+        //console.log(data);
         setReportData((prev) => ({
           ...prev,
           [category]: editedData, //해당 카테고리의 보고서 저장
