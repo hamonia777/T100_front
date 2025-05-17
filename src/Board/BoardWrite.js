@@ -2,7 +2,7 @@ import React from "react";
 import Navi from "../Navi.js";
 import MyInfo from "../MyInfo.js";
 import Ad from "../Ad.js";
-import Write from "./Editor.js";
+import Editor from "./Editor.js";
 import "./BoardWrite.css";
 
 function BoardWrite() {
@@ -22,7 +22,7 @@ function BoardWrite() {
 
       <div className="board-write-container">
         <div className="board-write-content">
-          <Write />
+          <Editor />
         </div>
       </div>
     </div>
