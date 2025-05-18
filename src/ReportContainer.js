@@ -49,15 +49,18 @@ const apiMap = {
   ],
   "기타 트렌드 보고서": ["OtherCrawl", "otherChat", "otherReport", "otherDate"],
 };
+//오늘 날짜 출력
+const today = new Date();
+const dateToday = `${today.getFullYear()}-${(today.getMonth() + 1)
+  .toString()
+  .padStart(2, "0")}-${today.getDate()}`;
+let date;
 
 function validateDate(today, targetDate) {
   const diffInMs = Math.abs(today - targetDate);
   const diffInDays = diffInMs / (1000 * 60 * 60 * 24);
   return diffInDays <= 7; // 7일 이내인지 확인
 }
-
-//보고서 평가하기
-function showRate() {}
 
 const ReportContainer = ({ category }) => {
   const [reportData, setReportData] = useState({}); //카테고리별 저장
@@ -67,13 +70,6 @@ const ReportContainer = ({ category }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [rating, setRating] = useState(0);
   const [star, setStar] = useState(0);
-
-  //오늘 날짜 출력
-  const today = new Date();
-  const dateToday = `${today.getFullYear()}-${(today.getMonth() + 1)
-    .toString()
-    .padStart(2, "0")}-${today.getDate()}`;
-  let date;
 
   //모달창 열기 닫기
   const openModal = () => {
@@ -148,17 +144,6 @@ const ReportContainer = ({ category }) => {
     }
   }, [category]);
 
-  //보고서 가져오기 유무 확인인
-  useEffect(() => {
-    if (!category) return;
-    if (reportData[category]) {
-      setCurrentReport(reportData[category]);
-      setLoading(false);
-    } else {
-      fetchReportData();
-    }
-  }, [category]);
-
   // 스크롤바가 맨 밑에 닿으면 점수 평가 모달창 띄움
   useEffect(() => {
     const handleScroll = () => {
@@ -179,8 +164,6 @@ const ReportContainer = ({ category }) => {
 
   return (
     <div>
-      {loading && <Loading />}
-
       <div className="report-container">
         <div className="report-title">
           {error ? (
@@ -207,12 +190,13 @@ const ReportContainer = ({ category }) => {
           )}
         </div>
 
-        {!loading && !error ? showRate() : null}
-        <Modal
-          open={modalOpen}
-          close={closeModal}
-          onRateSubmit={handleRatingSubmit}
-        />
+        {modalOpen && (
+          <Modal
+            open={modalOpen}
+            close={closeModal}
+            onRateSubmit={handleRatingSubmit}
+          />
+        )}
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+import Pagination from "react-js-pagination";
 import Navi from "../Navi.js";
 import Ad from "../Ad.js";
 import MyInfo from "../MyInfo.js";
@@ -11,13 +12,18 @@ function modifyBoardList(board) {
     title: item.title,
     author: item.nick,
     createdAt: item.created_at.split("T")[0],
-    content: item.content.replace(/<\/?[^>]+(>|$)/g, ""),
+    content: item.content,
   }));
   return formattedData;
 }
 
 const Board = ({ onClickTitle }) => {
   const [boardList, setBoardList] = useState([]);
+  const [page, setPage] = useState(1);
+
+  const handlePageChange = (page) => {
+    setPage(page);
+  };
 
   const fetchBoardList = async () => {
     try {
@@ -44,13 +50,18 @@ const Board = ({ onClickTitle }) => {
     }
   };
 
-  const BoardDetailInfo = (board) => {
-    onClickTitle(board);
-  };
-
   useEffect(() => {
     fetchBoardList();
   }, []);
+
+  // ✨ return() 바로 위에 위치시켜주세요
+  const itemsCountPerPage = 5;
+  const startIndex = (page - 1) * itemsCountPerPage;
+  const endIndex = startIndex + itemsCountPerPage;
+  const currentPageData = boardList
+    .slice()
+    .reverse()
+    .slice(startIndex, endIndex);
 
   return (
     <div className="board">
@@ -71,23 +82,33 @@ const Board = ({ onClickTitle }) => {
         <div className="board-postList">
           <div>
             <ul>
-              {boardList
-                .map((board) => (
-                  <li key={board.id} className="board-post-item">
-                    <Link to="/boarddetail" state={{ board }}>
-                      {board.title}
-                    </Link>
-
-                    <span>작성자: {board.author}</span>
-                    <span style={{ fontSize: "12px", color: "gray" }}>
-                      | 작성 일자: {board.createdAt}
-                    </span>
-                  </li>
-                ))
-                .reverse()}
+              {currentPageData.map((board) => (
+                <li key={board.id} className="board-post-item">
+                  <Link to="/boarddetail" state={{ board }}>
+                    {board.title}
+                  </Link>
+                  <span>작성자: {board.author}</span>
+                  <span style={{ fontSize: "12px", color: "gray" }}>
+                    | 작성 일자: {board.createdAt}
+                  </span>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
+
+        <div className="board-pagination">
+          <Pagination
+            activePage={page} // 현재 페이지
+            itemsCountPerPage={itemsCountPerPage} // 한 페이지랑 보여줄 아이템 갯수
+            totalItemsCount={boardList.length} // 총 아이템 갯수
+            pageRangeDisplayed={5} // paginator의 페이지 범위
+            prevPageText={"‹"} // "이전"을 나타낼 텍스트
+            nextPageText={"›"} // "다음"을 나타낼 텍스트
+            onChange={handlePageChange} // 페이지 변경을 핸들링하는 함수
+          />
+        </div>
+
         <div className="board-Write-button">
           <Link to="/boardwrite">
             <button id="write-button">작성하기</button>
