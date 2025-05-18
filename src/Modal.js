@@ -12,8 +12,11 @@ const Modal = ({ open, close, onRateSubmit }) => {
     setSelected(e.target.value);
     setRating(e.target.value);
   };
+  const handleClose = () => {
+    close();
+  };
 
-  const handleClose = async () => {
+  const handleSave = async () => {
     try {
       const response = await fetch("http://localhost:8080/api/eval", {
         method: "POST",
@@ -95,6 +98,9 @@ const Modal = ({ open, close, onRateSubmit }) => {
           </main>
 
           <footer>
+            <button className="save" onClick={handleSave}>
+              완료
+            </button>
             <button className="close" onClick={handleClose}>
               닫기
             </button>

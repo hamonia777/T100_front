@@ -26,9 +26,12 @@ const Editor = () => {
       const data = await response.json();
       console.log("서버 응답:", data);
 
+      //해당 게시글의 제목과 본문 확인
+      //console.log(title, content);
       navigate("/board");
     } catch (error) {
       console.error("게시글 작성 실패:", error);
+      navigate("/");
     }
   };
 
