@@ -1,13 +1,12 @@
-import React from "react";
-import { Background, LoadingText } from "./Style";
-import Spinner from "./spinner.gif";
+import { SyncLoader } from "react-spinners";
+import "./Loading.css";
 
-export default () => {
+const Loading = () => {
   return (
-    <Background>
-      <LoadingText>잠시만 기다려 주세요.</LoadingText>
-
-      <img src={Spinner} alt="로딩중" width="5%" />
-    </Background>
+    <div className="loading-container">
+      <SyncLoader />
+    </div>
   );
 };
+
+export default Loading;

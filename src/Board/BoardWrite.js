@@ -1,7 +1,7 @@
 import React from "react";
 import Navi from "../Navi.js";
-import MyInfo from "../MyInfo.js";
 import Ad from "../Ad.js";
+import MyInfo from "../MyInfo.js";
 import Editor from "./Editor.js";
 import "./BoardWrite.css";
 

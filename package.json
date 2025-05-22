@@ -18,6 +18,7 @@
     "react-router-dom": "^7.0.2",
     "react-scripts": "^5.0.1",
     "react-simple-maps": "^3.0.0",
+    "react-spinners": "^0.17.0",
     "styled-components": "^6.1.16",
     "web-vitals": "^2.1.4"
   },

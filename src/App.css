@@ -75,7 +75,7 @@
   padding: 20px; /* 버튼 여백 증가 */
   font-size: 1.5rem; /* 버튼 폰트 크기 증가 */
   font-weight: bold;
-  background-color: #007BFF;
+  background-color: #133d78;
   color: #ffffff;
   border: none;
   border-radius: 10px;
@@ -91,8 +91,8 @@
 /* 회원가입, 아이디/비밀번호 찾기 링크 */
 .SB {
   display: inline-block;
-  font-size: 1.2rem; /* 회원가입 링크의 폰트 크기 */
-  color: #007BFF;
+  font-size: 1.8rem; /* 회원가입 링크의 폰트 크기 */
+  color: #133d78;
   text-decoration: none;
   margin: 10px 0;
 }

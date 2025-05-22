@@ -54,7 +54,6 @@ const Board = ({ onClickTitle }) => {
     fetchBoardList();
   }, []);
 
-  // ✨ return() 바로 위에 위치시켜주세요
   const itemsCountPerPage = 5;
   const startIndex = (page - 1) * itemsCountPerPage;
   const endIndex = startIndex + itemsCountPerPage;
@@ -81,16 +80,26 @@ const Board = ({ onClickTitle }) => {
         <h3 id="board-title">게시판</h3>
         <div className="board-postList">
           <div>
-            <ul>
+            <ul className="board-post-list">
               {currentPageData.map((board) => (
                 <li key={board.id} className="board-post-item">
-                  <Link to="/boarddetail" state={{ board }}>
+                  <Link
+                    to="/boarddetail"
+                    state={{ board }}
+                    className="post-title"
+                  >
                     {board.title}
                   </Link>
-                  <span>작성자: {board.author}</span>
-                  <span style={{ fontSize: "12px", color: "gray" }}>
-                    | 작성 일자: {board.createdAt}
-                  </span>
+                  <div className="post-meta">
+                    <span className="post-author">
+                      {" "}
+                      | 작성자: {board.author}
+                    </span>
+                    <span className="post-date">
+                      | 작성일자: {board.createdAt}
+                    </span>
+                  </div>
+                  <hr className="divider" />
                 </li>
               ))}
             </ul>

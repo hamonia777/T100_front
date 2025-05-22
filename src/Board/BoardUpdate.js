@@ -1,8 +1,8 @@
 import { useLocation } from "react-router-dom";
 import Updator from "./Updator";
-import Navi from "../Navi";
-import Ad from "../Ad";
-import MyInfo from "../MyInfo";
+import Navi from "../Navi.js";
+import Ad from "../Ad.js";
+import MyInfo from "../MyInfo.js";
 import "./BoardUpdate.css";
 
 const BoardUpdate = () => {
