@@ -2,3 +2,83 @@
     margin: 10% 10% 0% 15%;
     font-size: 20px;
 }
+
+.myInfo-content{
+    margin-top: -5%;
+}
+.myInfo-content p{
+    margin: 0% 0% 5% 10%;
+}
+
+.myInfo-content #updateNick, #updatePwd{
+    padding : 1% 7% 1% 7%;
+    margin: 0% 10% 5% 10%;
+    background-color: #eff0f1;
+    border-radius: 200px;
+    border: #aad6ef 1px solid;
+}
+
+#myPostUpdateBtn, #myPostDeleteBtn{
+    padding : 1px 10px 1px 10px;
+    margin: 0% 2% 0% 5%;
+    background-color: #eff0f1;
+    border-radius: 200px;
+    border: #aad6ef 1px solid;
+}
+
+.myInfo-content #updateNick:hover, #updatePwd:hover, #changeNick-btn:hover, #changePwd-btn:hover, #myPostUpdateBtn:hover, #myPostDeleteBtn:hover{
+    background-color: #d8ebf6; /* 버튼 hover 시 색상 변경 */
+    color: #182c47; /* 글씨 색상 변경 */
+    border-color: #182c474c;
+    cursor: pointer; /* 커서 모양 변경 */
+}
+
+.changeNick-content, .changePwd-content{
+    margin: 6% 0% 0% 0%;
+}
+
+.changeNick-input, .changePwd-input{
+    display: flex;
+    margin: 1% 0% 5% 0%;
+}
+#changeNick-btn, #changePwd-btn{
+    min-width: 20%;
+    margin: 0% 0% 0% 8%;
+    padding: 1% 7% 1% 7%;
+    background-color: #eff0f1;
+    border-radius: 10px;
+    border: #aad6ef 1px solid;
+}
+
+.myPost-items{
+    display: flex;
+    padding : 1% 4% 1% 4%;
+    margin: 2% 10% 0% 10%;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    border: #333333 1px solid;
+}
+#myPostTitle{
+    width: 700px;
+}
+
+.myPost-btns{
+    display: flex;
+    width: 100%;
+    margin-left: 30%;
+}
+
+.myCommentsItems{
+    padding : 1% 4% 1% 4%;
+    margin: 2% 10% 0% 10%;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    border: #333333 1px solid;
+}
+
+.myCommentsItems:hover, .myPost-items:hover{
+    background-color: #d8ebf6; /* 버튼 hover 시 색상 변경 */
+    color: #182c47; /* 글씨 색상 변경 */
+    border-color: #182c474c;
+    cursor: pointer; /* 커서 모양 변경 */
+}

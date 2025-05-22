@@ -13,7 +13,7 @@ function MyPage() {
 
   const handleButtonClick = (option) => {
     setSelectedIndex(option.id);
-    //console.log(option.id);
+    //console.log(selectedIndex);
   };
   return (
     <div>

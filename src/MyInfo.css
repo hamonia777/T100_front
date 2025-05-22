@@ -5,11 +5,34 @@
     padding: 10px;
     width: 21%;
     height: 63vh;
+    background-color: #FFFFFF;
     border-radius: 15px;
     border-style: solid;
-    border-width: 5px;
+    border-width: 2px;
     border-color: #181818;
-    background-image: url(../public/tft.jpg);
     background-size: contain;
     z-index: 2;
   }
+
+  #helloUser{
+    margin: 5% 0% 5% 20%;
+  }
+  
+  #report-myinfo-title{
+    margin-top: 5%;
+}
+  .report-myPost-items{
+    display: flex;
+    padding : 1% 4% 1% 4%;
+    margin: 2% 10% 5% 10%;
+    background-color: #FFFFFF;
+    border-radius: 7px;
+    border: #333333 1px solid;
+}
+
+.report-myPost-items:hover{
+    background-color: #d8ebf6; /* 버튼 hover 시 색상 변경 */
+    color: #182c47; /* 글씨 색상 변경 */
+    border-color: #182c474c;
+    cursor: pointer; /* 커서 모양 변경 */
+}
