@@ -1,8 +1,8 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import Navi from "../Navi";
-import Ad from "../Ad";
-import MyInfo from "../MyInfo";
+import Navi from "../Navi.js";
+import Ad from "../Ad.js";
+import MyInfo from "../MyInfo.js";
 import "../Board/BoardDetail.css";
 
 // JWT 디코딩
@@ -25,7 +25,8 @@ const BoardDetail = () => {
   const showUpdateAndDeleteButton = () => {
     const raw = document.cookie.split("=")[1];
     const decodeCookie = parseJwt(raw);
-    console.log("raw :", raw, "\ndecodeCookie :", decodeCookie);
+    //console.log("raw :", raw, "\ndecodeCookie :", decodeCookie);
+    //console.log("board : ", board.author);
   };
 
   const handleEditClick = (comment) => {
@@ -192,6 +193,7 @@ const BoardDetail = () => {
 
   return (
     <div className="board-detail-page">
+      {showUpdateAndDeleteButton()}
       <div className="board-detail-navBar">
         <Navi />
       </div>
@@ -201,17 +203,6 @@ const BoardDetail = () => {
       </div>
       <div className="board-detail-myInfo">
         <MyInfo />
-      </div>
-      <div className="board-detail-button-container">
-        <button className="updateButton">
-          <Link to="/boardupdate" className="updateButton" state={{ board }}>
-            {" "}
-            수정하기{" "}
-          </Link>
-        </button>
-        <button className="deleteButton" onClick={deletePost}>
-          삭제하기
-        </button>
       </div>
 
       <div className="board-detail-container">
@@ -226,6 +217,18 @@ const BoardDetail = () => {
             className="board-detail-content"
             dangerouslySetInnerHTML={{ __html: board.content }}
           ></div>
+        </div>
+
+        <div className="board-detail-button-container">
+          <button className="updateButton">
+            <Link to="/boardupdate" className="updateButton" state={{ board }}>
+              {" "}
+              수정하기{" "}
+            </Link>
+          </button>
+          <button className="deleteButton" onClick={deletePost}>
+            삭제하기
+          </button>
         </div>
       </div>
 

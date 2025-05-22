@@ -101,7 +101,7 @@ function Home() {
 
   return (
     <div data-barba="wrapper" ref={transitionRef}>
-      {/* 네비게이션 바 */}
+      {/* 네비게이션 바
       <div className="nav">
         <div className="nav_wrapper">
           <AnimatedLink to="/" className="nav_page">
@@ -111,7 +111,7 @@ function Home() {
             Login &#8599;
           </AnimatedLink>
         </div>
-      </div>
+      </div> */}
 
       {/* 페이지 전환 애니메이션 */}
       <div className="transition">

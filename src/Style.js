@@ -8,7 +8,7 @@ export const Background = styled.div`
   margin-left: 40vw;
   top: 0;
   left: 0;
-  background: #ffffffb7;
+  background: #faf9ff;
   z-index: 999;
   display: flex;
   flex-direction: column;
@@ -20,5 +20,5 @@ export const LoadingText = styled.div`
   font: 1rem "Noto Sans KR";
   text-align: center;
   font-size: 3rem;
-  margin-top: 100px;
+  margin-top: 50px;
 `;

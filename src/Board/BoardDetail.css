@@ -1,5 +1,5 @@
 .board-detail-button-container{
-    margin-left: 60%;
+    margin-left: 70%;
     margin-top: 1%;
 }
 
@@ -8,7 +8,7 @@
     background-color: #182c47;
     color: #FAF9FF;
 
-    padding: 5px 10px;  
+    padding: 2.5px 5px;  
     font-size: 14px;
     cursor: pointer;
     border: none;
@@ -21,7 +21,7 @@
     background-color: #eae9f0;
     color: #182c47;
 
-    padding: 10px 20px;
+    padding: 6px 12px;
     font-size: 14px;
     cursor: pointer;
     border: none;
@@ -109,7 +109,7 @@
 }
 
 .btn-submit:hover {
-  background-color: #0f1e30;
+  background-color: #d8ebf6;
 }
 
 .input-comment {

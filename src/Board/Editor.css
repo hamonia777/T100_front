@@ -7,25 +7,26 @@
   }
   
   .editor-container {
-    width: 1000px;
+    max-width: 1000px;
+    width: 180%;
+    max-height: 180%;
     margin: auto;
   }
   
   .title-input {
     padding: 7px;
-    width: 65%;
+    width: 100%;
     font-size: 15px;
     margin-bottom: 15px;
   }
   
   .content-input {
-    height: 650px;
-    width: 65%;
+    min-height: 650px;
+    width: 100%;
   }
   
   .quill-editor {
-    width: 65%;
-    height: 80%;
+    height: 100%;
   }
   
   .write-button-container {

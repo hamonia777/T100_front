@@ -74,7 +74,7 @@ function Updator() {
       </div>
 
       <div className="button-container">
-        <button className="updateButton" onClick={handleSave}>
+        <button className="update-post-button" onClick={handleSave}>
           수정하기
         </button>
         <button className="cancelButton" onClick={handleCancel}>

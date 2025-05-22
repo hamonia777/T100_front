@@ -14,8 +14,8 @@
 
 .board-Write-button #write-button{
     padding: 10px 20px;
-    background-color: #182c47;
-    color: white;
+    background-color: #d8ebf6;
+    color: #182c47;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -26,7 +26,6 @@
 
 .board-postList{
     display: inline-block;
-    font-size: medium;
     margin: 1px;
     margin-top: 1%;
     margin-left: 27%;
@@ -56,14 +55,21 @@
     border-radius: 10px;
     border-style: solid;
     border-width: 1px;
-    border-color: #182c47;
+    border-color: #182c474c;
     width: 46%;
     padding: 10px 110px 10px 110px;
-    background-color: #d8ebf6;
+    background-color: #ffffff;
     color: #182c47;
  }
   
+
+ .post-author{
+  margin-left: 50%;
+ }
   
+ .post-date{
+  margin-left : 10%
+ }
   #write-button:hover {
     background-color: #aad6ef;
     color: #182c47;
@@ -71,17 +77,36 @@
   
   .board-postList {
     margin-top: 20px;
+    border-color: #182c474c;
   }
   
   .board-post-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 50px; /* 간격을 추가 */
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd; /* 항목 밑에 줄을 추가 */
-  }
-  
+  padding: 10px 0;
+}
+.post-title {
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+
+.post-title:hover {
+  color: #aad6ef;
+}
+
+.post-meta {
+  display: flex;
+  gap: 20px;
+  font-size: 13px;
+  color: #666;
+  margin-top: 5px;
+}
+
+.divider {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  margin: 10px 0;
+}
   .board-post-item a {
     font-size: 16px;
     font-weight: bold;  
@@ -121,8 +146,8 @@
 }
 
 .pagination li.active a {
-  background-color: #182c47;
-  color: white;
+  background-color: #d8ebf6;
+  color: #182c47;
   border-color: #182c47;
 }
 
