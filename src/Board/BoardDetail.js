@@ -1,7 +1,6 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Navi from "../Navi.js";
-import Ad from "../Ad.js";
 import MyInfo from "../MyInfo.js";
 import "../Board/BoardDetail.css";
 
@@ -198,9 +197,6 @@ const BoardDetail = () => {
         <Navi />
       </div>
 
-      <div className="board-detail-ad">
-        <Ad />
-      </div>
       <div className="board-detail-myInfo">
         <MyInfo />
       </div>
