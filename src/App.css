@@ -122,6 +122,7 @@
   text-decoration: underline; /* 밑줄 추가 */
 }
 
+
 /* 반응형 디자인 */
 @media screen and (max-width: 768px) {
   .SMLlog {

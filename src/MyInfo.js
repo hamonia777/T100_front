@@ -68,7 +68,7 @@ function MyInfo() {
       <p id="helloUser">안녕하세요 '{nick}'님!</p>
       <div className="report-showMyPost">
         <hr />
-        <p id="report-myinfo-title"> 내가 작성한 게시글 : </p>
+        <p id="report-myinfo-title"> [ 내가 작성한 게시글 ] </p>
         <ul>
           {Array.isArray(content) &&
             content.map((post, index) => (

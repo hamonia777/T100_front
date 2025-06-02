@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Pagination from "react-js-pagination";
 import Navi from "../Navi.js";
-import Ad from "../Ad.js";
 import MyInfo from "../MyInfo.js";
 import "./Board.css";
 
@@ -66,10 +65,6 @@ const Board = ({ onClickTitle }) => {
     <div className="board">
       <div className="board-nav">
         <Navi />
-      </div>
-
-      <div className="board-ad">
-        <Ad />
       </div>
 
       <div className="board-myInfo">

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Navi from "./Navi.js";
-import Ad from "./Ad.js";
 import MyInfo from "./MyInfo.js";
 import ReportContainer from "./ReportContainer.js";
 import "./Main.css";
@@ -36,10 +35,6 @@ const Main = () => {
     <div className="report-page">
       <div className="report-navBar">
         <Navi />
-      </div>
-
-      <div className="report-ad">
-        <Ad />
       </div>
       <div className="report-myInfo">
         <MyInfo />
