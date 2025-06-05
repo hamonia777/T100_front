@@ -1,5 +1,5 @@
 import "./Sign.css";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 
@@ -12,6 +12,11 @@ function Sign() {
   const [birth, setBirth] = useState("");
   const [isEmailAvailable, setIsEmailAvailable] = useState(false); // 이메일 사용 가능 여부
   const [isEmailChecked, setIsEmailChecked] = useState(false); // 이메일 중복 확인 여부
+  const navigate = useNavigate();
+
+  const cancelButton = () => {
+    navigate("/");
+  };
 
   const handSign = async (e) => {
     e.preventDefault();
@@ -33,18 +38,17 @@ function Sign() {
     }
 
     try {
-      const response = await axios.post(
-        "http://localhost:8080/api/signup",
-        {
-          nick,
-          email,
-          pass,
-          phone,
-          birth,
-        }
-      );
+      const response = await axios.post("http://localhost:8080/api/signup", {
+        nick,
+        email,
+        pass,
+        phone,
+        birth,
+      });
       console.log("회원가입 성공:", response.data);
       // 회원가입 성공 후 처리 로직 추가
+      alert("회원가입이 완료되었습니다!");
+      navigate("/login"); // 회원가입 후 로그인 페이지로 이동
     } catch (error) {
       console.error("회원가입 실패:", error);
       // 오류 처리 로직 추가
@@ -177,9 +181,9 @@ function Sign() {
             <button type="submit" className="BS">
               회원가입
             </button>
-            <Link to="/" className="BC">
+            <button className="BC" onClick={() => cancelButton} type="button">
               취소
-            </Link>
+            </button>
           </form>
         </div>
       </div>

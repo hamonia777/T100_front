@@ -89,8 +89,6 @@ function Login() {
             <Link to="/Sign" className="SB">
               Sign Up
             </Link>
-            <button className="IS">Forgot Username?</button>
-            <button className="PS">Forgot Password?</button>
           </div>
         </div>
       )}

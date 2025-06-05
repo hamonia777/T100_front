@@ -22,6 +22,9 @@
   color: #333333;
 }
 
+.loading-overlay p{
+  margin-left: 10%;
+}
 
 .report-page::before {
   position: fixed; 
