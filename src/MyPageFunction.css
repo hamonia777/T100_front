@@ -1,3 +1,9 @@
+@font-face {
+    font-family: 'NanumSquareNeoBold';
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-cBd.eot);
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-cBd.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-cBd.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-cBd.ttf) format("truetype");
+}
+
 .show-settings{
     margin: 10% 10% 0% 15%;
     font-size: 20px;
@@ -7,10 +13,12 @@
     margin-top: -5%;
 }
 .myInfo-content p{
+    font-family: 'NanumSquareNeoBold';
     margin: 0% 0% 5% 10%;
 }
 
 .myInfo-content #updateNick, #updatePwd{
+    font-family: 'NanumSquareNeoBold';
     padding : 1% 7% 1% 7%;
     margin: 0% 10% 5% 10%;
     background-color: #eff0f1;
@@ -34,14 +42,17 @@
 }
 
 .changeNick-content, .changePwd-content{
+    font-family: 'NanumSquareNeoBold';
     margin: 6% 0% 0% 0%;
 }
 
 .changeNick-input, .changePwd-input{
+    font-family: 'NanumSquareNeoBold';
     display: flex;
     margin: 1% 0% 5% 0%;
 }
 #changeNick-btn, #changePwd-btn{
+    font-family: 'NanumSquareNeoBold';
     min-width: 20%;
     margin: 0% 0% 0% 8%;
     padding: 1% 7% 1% 7%;
@@ -51,6 +62,7 @@
 }
 
 .myPost-items{
+    font-family: 'NanumSquareNeoBold';
     display: flex;
     padding : 1% 4% 1% 4%;
     margin: 2% 10% 0% 10%;
@@ -59,16 +71,19 @@
     border: #333333 1px solid;
 }
 #myPostTitle{
+    font-family: 'NanumSquareNeoBold';
     width: 700px;
 }
 
 .myPost-btns{
+    font-family: 'NanumSquareNeoBold';
     display: flex;
     width: 100%;
     margin-left: 30%;
 }
 
 .myCommentsItems{
+    font-family: 'NanumSquareNeoBold';
     padding : 1% 4% 1% 4%;
     margin: 2% 10% 0% 10%;
     background-color: #FFFFFF;
@@ -82,3 +97,4 @@
     border-color: #182c474c;
     cursor: pointer; /* 커서 모양 변경 */
 }
+

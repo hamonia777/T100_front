@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import Navi from "./Navi.js";
 import MyInfo from "./MyInfo.js";
 import ReportContainer from "./ReportContainer.js";
+import Loading from "./Loading";
 import "./Main.css";
 
 const Main = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedIndex, setSelectedIndex] = useState(null); //선택된 버튼 인덱스
-  const [modalOpen, setModalOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const categories = [
     "종합 보고서",
@@ -23,16 +24,13 @@ const Main = () => {
     setSelectedIndex(index);
   };
 
-  const hasVisited = sessionStorage.getItem("hasVisited");
-  if (!hasVisited) {
-    console.log("hasNotVisited");
-    sessionStorage.setItem("hasVisited", "true");
-  } else {
-    console.log("hasVisited");
-  }
-
   return (
     <div className="report-page">
+      {loading && (
+        <div className="loading-overlay">
+          <Loading />
+        </div>
+      )}
       <div className="report-navBar">
         <Navi />
       </div>
@@ -54,7 +52,10 @@ const Main = () => {
 
       {selectedCategory && (
         <div className="report-page">
-          <ReportContainer category={selectedCategory} />
+          <ReportContainer
+            category={selectedCategory}
+            setLoading={setLoading}
+          />
         </div>
       )}
     </div>

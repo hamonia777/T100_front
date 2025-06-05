@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Modal from "./Modal.js";
-import Loading from "./Loading";
+import { use } from "react";
 
 //보고서 내용 편집
 function editContent(data) {
@@ -53,23 +53,20 @@ const apiMap = {
 const today = new Date();
 const dateToday = `${today.getFullYear()}-${(today.getMonth() + 1)
   .toString()
-  .padStart(2, "0")}-${today.getDate()}`;
-let date;
+  .padStart(2, "0")}-${today.getDate().toString().padStart(2, "0")}`;
 
 function validateDate(today, targetDate) {
-  const diffInMs = Math.abs(today - targetDate);
-  const diffInDays = diffInMs / (1000 * 60 * 60 * 24);
-  return diffInDays <= 7; // 7일 이내인지 확인
+  return today === targetDate;
 }
 
-const ReportContainer = ({ category }) => {
+const ReportContainer = ({ category, setLoading }) => {
   const [reportData, setReportData] = useState({}); //카테고리별 저장
   const [currentReport, setCurrentReport] = useState(null);
   const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
-  const [rating, setRating] = useState(0);
   const [star, setStar] = useState(0);
+  const [date, setDate] = useState("");
+  const [crawlApi, chatApi, reportApi, dateApi] = apiMap[category] || [];
 
   //모달창 열기 닫기
   const openModal = () => {
@@ -82,24 +79,51 @@ const ReportContainer = ({ category }) => {
   //보고서 평점 값
   const handleRatingSubmit = (value) => {
     setStar(value);
-    console.log(`ReportContainer에서 받은 평점: ${value}`);
+    console.log(`ReportContainer에서 받은 평점: ${star}`);
+  };
+
+  const checkAndValidate = async () => {
+    setLoading(true);
+    try {
+      // ✅ 먼저 보고서와 날짜 가져오기
+      const reportRes = await fetch(`http://localhost:8080/api/${reportApi}`);
+      const reportJson = await reportRes.json();
+      const editedData = editContent(reportJson.data);
+
+      const dateRes = await fetch(`http://localhost:8080/api/${dateApi}`);
+      const serverDate = await dateRes.text();
+
+      setReportData((prev) => ({
+        ...prev,
+        [category]: editedData,
+      }));
+      setCurrentReport(editedData);
+      setDate(serverDate);
+
+      // ✅ 이제서야 validate 실행!
+      if (!validateDate(dateToday, serverDate)) {
+        console.log("날짜 지남 → 새로 불러오기 시작작");
+        await fetchReportData();
+      } else {
+        console.log("보고서 이미 있음 → 그대로 사용");
+      }
+    } catch (err) {
+      setError(`에러 발생: ${err.message}`);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const fetchReportData = async () => {
-    const [crawlApi, chatApi, reportApi, dateApi] = apiMap[category] || [];
-
-    //const dateData = await fetch(`http://localhost:8080/api/${dateApi}`);
-    //date = await dateData.text();
-
     if (!crawlApi || !chatApi || !reportApi) {
       setError("잘못된 카테고리입니다.");
       return;
     }
 
+    setLoading(true);
     try {
-      setLoading(true);
-      //await fetch(`http://localhost:8080/api/${crawlApi}`);
-      //await fetch(`http://localhost:8080/api/${chatApi}`);
+      await fetch(`http://localhost:8080/api/${crawlApi}`);
+      await fetch(`http://localhost:8080/api/${chatApi}`);
 
       const response = await fetch(`http://localhost:8080/api/${reportApi}`);
       if (!response.ok) {
@@ -128,19 +152,10 @@ const ReportContainer = ({ category }) => {
 
   //보고서 유무 확인
   useEffect(() => {
-    if (!category) return;
-    //console.log(today, reportData[category]);
-    // 먼저 저장된 게 있는지 확인
-    if (
-      reportData[category]
-      //&& validateDate(today, reportData[category].date)
-    ) {
-      setCurrentReport(reportData[category]);
-      setLoading(false);
-      console.log("보고서 이미 있음");
+    if (!category) {
+      return;
     } else {
-      console.log("보고서 없음");
-      fetchReportData();
+      checkAndValidate();
     }
   }, [category]);
 
@@ -160,8 +175,6 @@ const ReportContainer = ({ category }) => {
     };
   }, []);
 
-  if (loading) return <Loading />;
-
   return (
     <div>
       <div className="report-container">
@@ -169,9 +182,7 @@ const ReportContainer = ({ category }) => {
           {error ? (
             <p>Error: {error}</p>
           ) : reportData[category] ? (
-            <h2 id="title" onClick={openModal}>
-              {reportData[category].title}
-            </h2>
+            reportData[category].title
           ) : (
             <p>Loading...</p>
           )}

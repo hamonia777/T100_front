@@ -1,10 +1,10 @@
 @font-face {
-  
-    font-family: 'SUIT-Regular';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
-    font-weight: bold;
-    font-style:  bold;
-}  
+    font-family: 'NanumSquareNeoBold';
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-cBd.eot);
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-cBd.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-cBd.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-cBd.ttf) format("truetype");
+}
+
+
 .myInfo{
     display: inline-block;
     position: fixed;
@@ -23,20 +23,21 @@
   }
 
   #helloUser{
-    font-family: 'SUIT-Regular';
-    margin: 5% 0% 5% 20%;
+    font-family: 'NanumSquareNeoBold';
+    margin: 5% 0% 5% 13%;
   }
   
   #report-myinfo-title{
-    font-family: 'SUIT-Regular';
+  font-family: 'NanumSquareNeoBold';
     margin-top: 5%;
-    margin-left: 20%;
+    margin-left: 13%;
 }
   .report-myPost-items{
-    font-family: 'SUIT-Regular';
+    font-family: 'NanumSquareNeoBold';
     display: flex;
     padding : 1% 4% 1% 4%;
     margin: 5% 10% 5% 10%;
+    text-align: center;
     background-color: #FFFFFF;
     border-radius: 7px;
     border: #333333 1px solid;
