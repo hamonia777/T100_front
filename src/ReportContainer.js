@@ -100,13 +100,13 @@ const ReportContainer = ({ category, setLoading }) => {
       setCurrentReport(editedData);
       setDate(serverDate);
 
-      // ✅ 이제서야 validate 실행!
-      if (!validateDate(dateToday, serverDate)) {
-        console.log("날짜 지남 → 새로 불러오기 시작작");
-        await fetchReportData();
-      } else {
-        console.log("보고서 이미 있음 → 그대로 사용");
-      }
+      // // ✅ 이제서야 validate 실행!
+      // if (!validateDate(dateToday, serverDate)) {
+      //   console.log("날짜 지남 → 새로 불러오기 시작작");
+      //   await fetchReportData();
+      // } else {
+      //   console.log("보고서 이미 있음 → 그대로 사용");
+      // }
     } catch (err) {
       setError(`에러 발생: ${err.message}`);
     } finally {
