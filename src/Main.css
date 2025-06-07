@@ -106,7 +106,7 @@
   display: inline-block;
   font-size: medium;
   margin: 1px;
-  margin-left: 27%;
+  margin-left: 26%;
   margin-right: 2%;
   margin-bottom: 10%;
   padding: 20px;
@@ -117,7 +117,7 @@
   color: #182c47;
   background-color: #FFFFFF;
 
-  width: 46%;
+  width: 48%;
   min-height: 200px; 
   box-sizing: border-box;
   white-space: pre-wrap; /* 줄바꿈과 공백 유지 */

@@ -11,40 +11,33 @@ body {
   align-items: center;
   width: 100%;
   height: 10vh;
-  padding: 2vh 5vw;  /* 가로 패딩을 화면 너비에 비례하도록 설정 */
+  padding: 2vh 5vw;
   position: fixed;
   top: 0;
   z-index: 1000;
   background-color: #FAF9FF;
-  border-bottom: 2px solid #ddd; 
+  border-bottom: 2px solid #ddd;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.navMenu, .navProfile {
+.navMenu {
   display: flex;
   list-style: none;
   padding: 0;
   margin: 0;
   align-items: center;
-}
-
-.navMenu {
-  flex: 1; /* 남은 공간을 채움 */
-  justify-content: center; /* 메뉴 아이템을 가운데 정렬 */
-}
-
-.navProfile {
-  margin-left: 30vh; /* 오른쪽 끝으로 배치 */
+  flex: 1;
+  justify-content: center;
 }
 
 .navItem {
-  margin: 0 10vw;  /* 화면 크기에 비례한 마진 */
+  margin: 0 10vw;
   color: #333333;
 }
 
 .navItem a {
   position: relative;
-  text-decoration: none; /* 기본 링크 스타일 제거 */
+  text-decoration: none;
 }
 
 .navItem a::after {
@@ -63,12 +56,48 @@ body {
   transform: scale(1);
 }
 
-.U svg {
-  width: 2.5vw; /* 아이콘 크기를 화면 크기에 맞게 설정 */
-  height: auto;
+.navProfile {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* 아이콘과 로그아웃 버튼 간격 */
+  margin-left: 30vh;
 }
 
-/* 반응형 디자인: 화면이 작아지면 폰트 크기와 간격 조정 */
+.profile-icon {
+  display: flex;
+  align-items: center;
+}
+
+.profile-icon svg {
+  width: 2.5vw;
+  height: auto;
+  cursor: pointer;
+}
+
+/* 로그아웃 버튼 스타일 (가로정렬에 적합하게) */
+.logout-small {
+  display: inline-flex;
+  align-items: center;
+  font-size: 1rem;
+  background-color: #f24f4f;
+  color: #ffffff;
+  padding: 8px 14px;
+  border-radius: 4px;
+  text-decoration: none;
+  border: 1px solid #b12c2c;
+  transition: background-color 0.2s, border-color 0.2s;
+
+}
+
+.logout-small:hover {
+  background-color: #d43f3f;
+  border-color: #a11f1f;
+  cursor: pointer;
+}
+
+
+
+/* 반응형 디자인 */
 @media (max-width: 768px) {
   .navItem {
     margin: 0 4vw;
@@ -78,7 +107,12 @@ body {
     font-size: 3rem;
   }
 
-  .U svg {
+  .profile-icon svg {
     width: 6vw;
+  }
+
+  .logout-small {
+    font-size: 0.8rem;
+    padding: 4px 8px;
   }
 }
